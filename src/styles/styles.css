@@ -1,0 +1,167 @@
+@font-face {
+  font-family: Highway Gothic;
+  src: url("./highway_gothic/HWYGOTH.TTF"); }
+@font-face {
+  font-family: Libre Franklin;
+  src: url("./fonts/LibreFranklin-Bold.ttf"); }
+/* Style the container */
+/* video::-webkit-media-text-track-container {
+
+} */
+
+/* Style the text background */
+video::-webkit-media-text-track-background {
+
+}
+
+/* Style the text itself */
+video::-webkit-media-text-track-display {
+  color: white;
+  background-color: #191919;
+  opacity: 0.8;
+  font-size: 50px;
+  font-family: Libre Franklin;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+video::cue {
+  background-color: #191919;
+}
+
+/* Shared */
+.component-container {
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.lang-button {
+  color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-weight: 700;
+  padding: 3px 15px;
+  margin: 0px 10px;
+  width: 150px;
+}
+
+button {
+  outline: none !important;
+}
+
+/* SubtitleVideo styles */
+.video-border {
+  border: 1px solid #2B2D2F;
+  background-color: black;
+}
+.transport-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-color: #333333;
+  color: white;
+  padding: 10px;
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-bottom: 40px;
+  top: -55px;
+}
+.icon-style {
+  margin-right: 25px;
+  margin-left: 10px;
+  padding-top: 5px;
+}
+.end-icon {
+  margin-right: 10px;
+  padding-top: 5px;
+}
+
+/* progress[value] {
+  -webkit-appearance: none;
+   appearance: none;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #ccc;
+} */
+
+.progress {
+  background-color: #ccc;
+  z-index: 500;
+  position: relative;
+  border-radius: 0;
+  height: 25px;
+}
+
+/*VideoList styles */
+.list-button {
+  position: relative;
+  z-index: 5;
+  font-family: 'Libre Franklin';
+  font-size: 25px;
+  margin: 25px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: white;
+  border: none;
+}
+.about {
+  position: relative;
+  left: -20px;
+  width: 325px;
+  margin: auto;
+}
+
+.bg1 {
+  margin: 0;
+  padding: 0;
+  height: 80px;
+  width: 170px;
+  border-radius: 25px 0px 0px 25px ;
+}
+.bg2 {
+  border-radius: 0px 25px 25px 0px ;
+}
+
+.button-container {
+  position: relative;
+  top: -50px;
+  left: -15px;
+  display: flex;
+  justify-content: center;
+}
+/* ITEMS HOLDS THE BUTTONS AND THE VIDEOS */
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 500px;
+  position: absolute;
+}
+
+/* About page, specific to Under Our Skin right now */
+.about-content {
+  border: 1px solid gray;
+  height: 800px;
+  width: 1600px;
+  margin: auto;
+  overflow-x: scroll;
+}
+.about-container {
+  font-family: 'Libre Franklin';
+  background-color: black;
+  color: white;
+  height: 1080px;
+  width: 1920px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
