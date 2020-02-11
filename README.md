@@ -10,6 +10,12 @@ The styles in the VideoList component have been changed to accommodate a larger 
 This content was created outside the museum  by The Seattle Times, so an "About" button and route to 
 provide context and attribution was added.
 
+The subtitles are in .vtt format and, for convenience for this project, are included in the repo. The video assets are here:
+https://drive.google.com/drive/u/0/folders/1obbM3j2PmoXCF7xybPsyecZo-1_mdjMD
+
+Subtitles were created using amara.org. If edits need to be made, they should be updated both here and there.
+Documentation for Amara and subtitle creation is here: https://smm.atlassian.net/wiki/spaces/EXHIBTS/pages/38895689/Creating+Captions+Subtitles
+
 The contents of the original video-subtitles project is below.
 
 The key goal is a reusable video player/caption component that uses html to display subtitles instead of having them baked into the video file.
