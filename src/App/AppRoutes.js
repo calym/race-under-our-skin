@@ -5,9 +5,7 @@ import SubtitleVideo from '../component/SubtitleVideo';
 import About from '../component/About';
 import NoMatch from './NoMatch';
 import data from '../api.json';
-import {
-  themeOne, themeTwo, themeThree, themeFour,
-} from '../themes';
+import theme from '../themes';
 
 function AppRoutes() {
   const component = process.env.COMPONENT_SELECTION;
@@ -16,27 +14,6 @@ function AppRoutes() {
   const { screenRes } = data.find(obj => obj.name === component);
   const { videoRes } = data.find(obj => obj.name === component);
   const video = videos[0];
-
-  let theme;
-  switch (component) {
-    case 'housing-videos':
-      theme = themeThree;
-      break;
-    case 'creating-race-videos':
-      theme = themeOne;
-      break;
-    case 'separate-and-unequal-videos':
-      theme = themeTwo;
-      break;
-    case 'inventing-whiteness-videos':
-      theme = themeThree;
-      break;
-    case 'human-mismeasure-videos':
-      theme = themeFour;
-      break;
-    default:
-      theme = themeOne;
-  }
 
   return (
     <Fragment>

@@ -79,15 +79,7 @@ function getClientEnvironment(publicUrl) {
         PUBLIC_URL: publicUrl,
 
         // USE TO SELECT COMPONENT SETTINGS
-        // COMPONENT_SELECTION: 'housing-videos',
-        // COMPONENT_SELECTION: 'creating-race-videos',
-        // COMPONENT_SELECTION: 'human-mismeasure-videos',
-        // COMPONENT_SELECTION: 'inventing-whiteness-videos',
-        // COMPONENT_SELECTION: 'separate-and-unequal-videos',
         COMPONENT_SELECTION: 'under-our-skin',
-        // COMPONENT_SELECTION: 'race-in-america-video',
-        // COMPONENT_SELECTION: 'scientists-on-race',
-        // COMPONENT_SELECTION: 'experiencing-bias',
       },
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
