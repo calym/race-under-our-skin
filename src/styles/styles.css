@@ -18,7 +18,7 @@ video::-webkit-media-text-track-background {
 video::-webkit-media-text-track-display {
   color: white;
   background-color: #191919;
-  opacity: 0.8;
+  opacity: 0.9;
   font-size: 50px;
   font-family: Libre Franklin;
   padding-top: 20px;

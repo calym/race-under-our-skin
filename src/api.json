@@ -16,78 +16,78 @@
         "videoRef": "under-our-skin/Ally.mp4",
         "englishName": "Ally",
         "spanishName": "Aliado",
-        "englishTrack": "under-our-skin/ally-eng.vtt",
-        "spanishTrack": "under-our-skin/ally-spa.vtt"
+        "englishTrack": "under-our-skin/Ally.en.vtt",
+        "spanishTrack": "under-our-skin/Ally.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Colorblindness.mp4",
         "englishName": "Colorblindness",
         "spanishName": "Ceguera al color",
-        "englishTrack": "under-our-skin/colorblindness-eng.vtt",
-        "spanishTrack": "under-our-skin/colorblindness-spa.vtt"
+        "englishTrack": "under-our-skin/Colorblindness.en.vtt",
+        "spanishTrack": "under-our-skin/Colorblindness.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Diversity.mp4",
         "englishName": "Diversity",
         "spanishName": "Diversidad",
-        "englishTrack": "under-our-skin/diversity-eng.vtt",
-        "spanishTrack": "under-our-skin/diversity-spa.vtt"
+        "englishTrack": "under-our-skin/Diversity.en.vtt",
+        "spanishTrack": "under-our-skin/Diversity.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Institutional_Racism.mp4",
         "englishName": "Institutional Racism",
         "spanishName": "Racismo institucional",
-        "englishTrack": "under-our-skin/institutional-racism-eng.vtt",
-        "spanishTrack": "under-our-skin/institutional-racism-spa.vtt"
+        "englishTrack": "under-our-skin/Institutional_Racism.en.vtt",
+        "spanishTrack": "under-our-skin/Institutional_Racism.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Microaggression.mp4",
         "englishName": "Microaggression",
         "spanishName": "Microagresión",
-        "englishTrack": "under-our-skin/microaggression-eng.vtt",
-        "spanishTrack": "under-our-skin/microaggression-spa.vtt"
+        "englishTrack": "under-our-skin/Microaggression.en.vtt",
+        "spanishTrack": "under-our-skin/Microaggression.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Person_of_Color.mp4",
         "englishName": "Person of Color",
         "spanishName": "Persona de color",
-        "englishTrack": "under-our-skin/person-of-color-eng.vtt",
-        "spanishTrack": "under-our-skin/person-of-color-spa.vtt"
+        "englishTrack": "under-our-skin/Person_of_Color.en.vtt",
+        "spanishTrack": "under-our-skin/Person_of_Color.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Politically_Correct.mp4",
         "englishName": "Politically Correct",
         "spanishName": "Políticamente correcto",
-        "englishTrack": "under-our-skin/politically-correct-eng.vtt",
-        "spanishTrack": "under-our-skin/politically-correct-spa.vtt"
+        "englishTrack": "under-our-skin/Politically_Correct.en.vtt",
+        "spanishTrack": "under-our-skin/Politically_Correct.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Racist.mp4",
         "englishName": "Racist",
         "spanishName": "Racista",
-        "englishTrack": "under-our-skin/racist-eng.vtt",
-        "spanishTrack": "under-our-skin/racist-spa.vtt"
+        "englishTrack": "under-our-skin/Racist.en.vtt",
+        "spanishTrack": "under-our-skin/Racist.es.vtt"
       },
       {
         "videoRef": "under-our-skin/Safe_Space.mp4",
         "englishName": "Safe Space",
         "spanishName": "Espacio Seguro",
-        "englishTrack": "under-our-skin/safe-space-eng.vtt",
-        "spanishTrack": "under-our-skin/safe-space-spa.vtt"
+        "englishTrack": "under-our-skin/Safe_Space.en.vtt",
+        "spanishTrack": "under-our-skin/Safe_Space.es.vtt"
       },
       {
         "videoRef": "under-our-skin/White_Fragility.mp4",
         "englishName": "White Fragility",
         "spanishName": "Fragilidad Blanca",
-        "englishTrack": "under-our-skin/white-fragility-eng.vtt",
-        "spanishTrack": "under-our-skin/white-fragility-spa.vtt"
+        "englishTrack": "under-our-skin/White_Fragility.en.vtt",
+        "spanishTrack": "under-our-skin/White_Fragility.es.vtt"
       },
       {
         "videoRef": "under-our-skin/White_Privilege.mp4",
         "englishName": "White Privilege",
         "spanishName": "Privilegio Blanco",
-        "englishTrack": "under-our-skin/white-privilege-eng.vtt",
-        "spanishTrack": "under-our-skin/white-privilege-spa.vtt"
+        "englishTrack": "under-our-skin/White_Privilege.en.vtt",
+        "spanishTrack": "under-our-skin/White_Privilege.es.vtt"
       }
     ]
   }

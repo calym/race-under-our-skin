@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
-  faPlay, faStop, faPause, faHome, faUndoAlt
+  faPlay, faPause, faHome, faUndoAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../styles/styles.css';
@@ -9,15 +10,15 @@ import '../styles/styles.css';
 class SubtitleVideo extends Component {
   constructor(props) {
     super(props);
+    const { langID } = this.props;
     this.state = {
-      langID: this.props.langID,
+      langID,
       showTransport: true,
       videoPlaying: true,
       fillAmount: '0%',
     };
-    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.video = React.createRef();
-    this.player;
+    this.player = '';
   }
 
   componentDidMount() {
@@ -25,17 +26,44 @@ class SubtitleVideo extends Component {
     this.video.current.onended = () => this.home();
     if (location.pathname === '/single') {
       this.setState({ showTransport: false });
-    };
+    }
     setTimeout(() => this.videoPlay(), 1000);
-    this.setState({ lang: langID }, () => this.setColors());
+    this.setState({ langID }, () => this.setColors());
     document.addEventListener('keydown', this.handleKeyDown);
     this.player = document.getElementById('video');
-    const progress = document.getElementById('progress');
     this.player.addEventListener('timeupdate', () => {
       const percent = Math.floor((100 / this.player.duration) * this.player.currentTime);
-      // progress.value = percent;
-      this.setState({fillAmount: percent.toString() + '%'});
+      this.setState({ fillAmount: `${percent.toString()}%` });
     }, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  setEnglish() {
+    this.setState({ langID: 'eng' }, () => this.setColors());
+  }
+
+  setSpanish() {
+    this.setState({ langID: 'spa' }, () => this.setColors());
+  }
+
+  setColors() {
+    const { langID } = this.state;
+    const { theme } = this.props;
+    if (langID === 'eng' && document.getElementById('langSelEng')) {
+      document.getElementById('langSelEng').style.color = 'white';
+      document.getElementById('langSelEng').style.backgroundColor = theme.primary;
+      document.getElementById('langSelSpa').style.color = theme.spaPrimary;
+      document.getElementById('langSelSpa').style.backgroundColor = 'white';
+    }
+    if (langID === 'spa' && document.getElementById('langSelEng')) {
+      document.getElementById('langSelEng').style.color = theme.primary;
+      document.getElementById('langSelEng').style.backgroundColor = 'white';
+      document.getElementById('langSelSpa').style.color = 'white';
+      document.getElementById('langSelSpa').style.backgroundColor = theme.spaPrimary;
+    }
   }
 
   videoPlay() {
@@ -44,14 +72,14 @@ class SubtitleVideo extends Component {
   }
 
   videoPause() {
+    const { videoPlaying } = this.state;
     this.video.current.pause();
     this.setState({ videoPlaying: false });
     // don't want video paused forever
     setTimeout(() => {
-      if (this.state.videoPlaying === false) {
+      if (videoPlaying === false) {
         this.home();
       }
-      return;
     }, 10000);
   }
 
@@ -65,61 +93,19 @@ class SubtitleVideo extends Component {
     window.location.reload();
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  handleKeyDown(event) {
-    const { langID } = this.state;
-    // toggle language
-    if (event.key === '1') {
-      langID === 'eng' ? this.setState({ langID: 'spa'}) : this.setState({ langID: 'eng'});
-    }
-    // restart
-    if (event.key === '2') {
-      this.videoRestart();
-    }
-    // select (go home)
-    if (event.key === '3') {
-      this.home();
-    }
-    return 'unbound key press';
-  }
-
-  setEnglish() {
-    this.setState({ langID: 'eng' }, () => this.setColors());
-  }
-
-  setSpanish() {
-    this.setState({ langID: 'spa' }, () => this.setColors());
-  }
-
-  setColors() {
-    const { langID } = this.state;
-    const { theme, videos } = this.props;
-    if (langID === "eng" && document.getElementById('langSelEng')) {
-      document.getElementById('langSelEng').style.color = 'white';
-      document.getElementById('langSelEng').style.backgroundColor = theme.primary;
-      document.getElementById('langSelSpa').style.color = theme.spaPrimary;
-      document.getElementById('langSelSpa').style.backgroundColor = 'white';
-    }
-    if (langID === "spa" && document.getElementById('langSelEng')) {
-      document.getElementById('langSelEng').style.color = theme.primary;
-      document.getElementById('langSelEng').style.backgroundColor = 'white';
-      document.getElementById('langSelSpa').style.color = 'white';
-      document.getElementById('langSelSpa').style.backgroundColor = theme.spaPrimary;
-    }
-  }
-
   render() {
-    const { videoPlaying, showTransport, langID, fillAmount } = this.state;
-    const { video, theme, touchscreen, videoRes, screenRes } = this.props;
-    let vidHeight = videoRes[1];
-    let vidWidth = videoRes[0];
+    const {
+      videoPlaying, showTransport, langID, fillAmount,
+    } = this.state;
+    const {
+      video, theme, touchscreen, videoRes, screenRes,
+    } = this.props;
+    const vidHeight = videoRes[1];
+    const vidWidth = videoRes[0];
     const screenWidth = screenRes[0];
     const screenHeight = screenRes[1];
     let progBarColor;
-    let progBarPlacement = touchscreen ? '30px' : '-15px';
+    const progBarPlacement = touchscreen ? '30px' : '-15px';
 
     langID === 'eng' ? progBarColor = theme.primary : progBarColor = theme.spaPrimary;
 
@@ -139,34 +125,48 @@ class SubtitleVideo extends Component {
     // }
 
     return (
-      <div className="component-container" style={{ height: screenHeight + 'px', width: screenWidth + 'px' }}>
+      <div className="component-container" style={{ height: `${screenHeight}px`, width: `${screenWidth}px` }}>
         <div className="center">
-          <div style={{ display: 'flex', flexDirection: 'column', position: 'absolute', top: '-50px', left: '0px' }}>
+          <div style={{
+            display: 'flex', flexDirection: 'column', position: 'absolute', top: '-50px', left: '0px',
+          }}
+          >
             <video id="video" ref={this.video} height={vidHeight} width={vidWidth} className="video-border">
-              <source src={video.videoRef}/>
-              { langID === 'eng' && <track default kind="subtitles" srcLang="en" src={video.englishTrack}/> }
-              { langID === 'spa' && <track default kind="subtitles" srcLang="spa" src={video.spanishTrack}/> }
+              <source src={video.videoRef} />
+              { langID === 'eng' && <track default kind="subtitles" srcLang="en" src={video.englishTrack} /> }
+              { langID === 'spa' && <track default kind="subtitles" srcLang="spa" src={video.spanishTrack} /> }
             </video>
-            <div style={{ width: vidWidth + 'px', top: progBarPlacement}} className="progress">
-              <div style={{ width: fillAmount, backgroundColor: progBarColor }}></div>
+            <div style={{ width: `${vidWidth}px`, top: progBarPlacement }} className="progress">
+              <div style={{ width: fillAmount, backgroundColor: progBarColor }} />
             </div>
-            {/* <progress id="progress" max="100" min="0" style={{ width: vidWidth+'px', top: progBarPlacement, zIndex: 500, position: 'relative' }} /> */}
-            { showTransport && touchscreen && <div className="transport-container" style={{ width: vidWidth+'px' }}>
+            { showTransport && touchscreen && (
+            <div className="transport-container" style={{ width: `${vidWidth}px` }}>
               <div>
                 { !videoPlaying && <FontAwesomeIcon icon={faPlay} size="lg" onClick={() => this.videoPlay()} className="icon-style" /> }
                 { videoPlaying && <FontAwesomeIcon icon={faPause} size="lg" onClick={() => this.videoPause()} className="icon-style" /> }
-                <FontAwesomeIcon icon={faUndoAlt} size="lg"  onClick={() => this.videoRestart()} className="end-icon" />
+                <FontAwesomeIcon icon={faUndoAlt} size="lg" onClick={() => this.videoRestart()} className="end-icon" />
               </div>
               <div className="center">
-                <button onClick={() => this.setEnglish() } id="langSelEng" className="lang-button">English</button>
-                <button onClick={() => this.setSpanish() } id="langSelSpa" className="lang-button">Español</button>
+                <button onClick={() => this.setEnglish()} type="button" id="langSelEng" className="lang-button">English</button>
+                <button onClick={() => this.setSpanish()} type="button" id="langSelSpa" className="lang-button">Español</button>
               </div>
-              <FontAwesomeIcon icon={faHome} size="lg"  onClick={() => window.location.reload()} className="end-icon"/>
-            </div> }
+              <FontAwesomeIcon icon={faHome} size="lg" onClick={() => window.location.reload()} className="end-icon" />
+            </div>
+            )}
           </div>
         </div>
       </div>
     );
   }
 }
+
+SubtitleVideo.propTypes = {
+  langID: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
+  video: PropTypes.object.isRequired,
+  screenRes: PropTypes.string.isRequired,
+  touchscreen: PropTypes.string.isRequired,
+  videoRes: PropTypes.string.isRequired,
+};
+
 export default SubtitleVideo;
